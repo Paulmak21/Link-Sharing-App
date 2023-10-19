@@ -9,7 +9,7 @@ function agregarNuevoFormulario() {
   nuevoFormulario.className = "formulario";
 
   // Agregar Link #1
-  const titulo = document.createElement("p");
+  const titulo = document.createElement("h6");
   titulo.textContent = `Link #${linkCount}`;
   nuevoFormulario.appendChild(titulo);
 
@@ -20,10 +20,14 @@ function agregarNuevoFormulario() {
   removeButton.addEventListener("click", () => eliminarFormulario(nuevoFormulario));
   nuevoFormulario.appendChild(removeButton);
 
+  const platform = document.createElement("p");
+  platform.textContent = 'Platform';
+
   // Crear dropdown
   const dropdown = document.createElement("select");
   dropdown.className = "form-select";
   dropdown.innerHTML = `
+    <option placeholder="Please select one"></option>
     <option value="github"><i class="fa-brands fa-github-alt">GitHub</i></option>
     <option value="youtube">YouTube</option>
     <option value="linkedin">LinkedIn</option>
@@ -33,16 +37,22 @@ function agregarNuevoFormulario() {
     <!-- Agrega más opciones según sea necesario -->
   `;
 
+  const aquiLink = document.createElement("p");
+  aquiLink.textContent = "Aquí tu link:";
+
+
   // Input con redSocial url || link
   const urlInput = document.createElement("input");
   urlInput.type = "text";
   urlInput.className = "form-control";
-  urlInput.placeholder = "Anade url/link";
+  urlInput.placeholder = "Anade url";
 
   // Anade titulo, remove, dropdown && el input
   nuevoFormulario.appendChild(titulo);
   nuevoFormulario.appendChild(removeButton);
+  nuevoFormulario.appendChild(platform);
   nuevoFormulario.appendChild(dropdown);
+  nuevoFormulario.appendChild(aquiLink);
   nuevoFormulario.appendChild(urlInput);
 
   // Lo anade al div creado en el HTML
@@ -56,7 +66,7 @@ function eliminarFormulario(formulario) {
   formContainer.removeChild(formulario);
   linkCount--;
   // Ajustar header de Links# 1,2,3 etc.
-  const formularios = formContainer.querySelectorAll(".formulario p");
+  const formularios = formContainer.querySelectorAll(".formulario h6");
   formularios.forEach((titulo, index) => {
     titulo.textContent = `Link #${index + 1}`;
   });
