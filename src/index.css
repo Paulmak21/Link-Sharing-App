@@ -1,0 +1,18 @@
+.col-7.container-fluid .h1,
+.col-7.container-fluid p {
+  text-align: left;
+}
+
+.col-7.container-fluid button {
+  text-align: center;
+}
+
+.btn.btn-outline-primary.row.col-12.justify-content-center.p-1.rounded-2 {
+  margin: 10px 0;
+}
+
+/* Estilo para el botón "Remove" */
+.formulario .remove-button {
+  color: lightgray; 
+  cursor: pointer;
+}
